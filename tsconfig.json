@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es6",                          // Especifica el estándar de JavaScript que se emitirá
+    "module": "commonjs",                     // Especifica el sistema de módulos
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"], // Especifica las bibliotecas que usará el compilador
+    "allowJs": true,                          // Permite la compilación de archivos .js
+    "skipLibCheck": true,                     // Omite la verificación de tipos de archivos de declaración
+    "esModuleInterop": true,                  // Habilita la interoperabilidad entre módulos ES y CommonJS
+    "allowSyntheticDefaultImports": true,     // Permite las importaciones de valores por defecto
+    "strict": true,                           // Habilita todas las verificaciones estrictas
+    "forceConsistentCasingInFileNames": true, // Asegura que los nombres de archivo se usen con el mismo caso
+    "moduleResolution": "node",               // Especifica cómo se resuelven los módulos
+    "resolveJsonModule": true,                // Permite importar archivos JSON
+    "isolatedModules": true,                  // Asegura que cada archivo sea un módulo
+    "noEmit": true,                           // Impide la emisión de archivos .js
+    "jsx": "react"                            // Especifica el modo JSX
+  },
+  "include": [
+    "./src/**/*",
+    "./types/**/*"
+  ],
+  "exclude": [
+    "node_modules",                           // Excluye la carpeta node_modules
+    "**/*.spec.ts"                            // Excluye los archivos de prueba
+  ]
+}

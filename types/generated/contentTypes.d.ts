@@ -441,6 +441,11 @@ export interface ApiPrestadorPrestador extends Schema.CollectionType {
       'oneToMany',
       'api::reserva.reserva'
     >;
+    valors: Attribute.Relation<
+      'api::prestador.prestador',
+      'oneToMany',
+      'api::valore.valore'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -496,6 +501,38 @@ export interface ApiReservaReserva extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::reserva.reserva',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiValoreValore extends Schema.CollectionType {
+  collectionName: 'valores';
+  info: {
+    singularName: 'valore';
+    pluralName: 'valores';
+    displayName: 'Valor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nombre: Attribute.String;
+    tiempo: Attribute.BigInteger;
+    precio: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::valore.valore',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::valore.valore',
       'oneToOne',
       'admin::user'
     > &
@@ -949,6 +986,7 @@ declare module '@strapi/types' {
       'api::comercio.comercio': ApiComercioComercio;
       'api::prestador.prestador': ApiPrestadorPrestador;
       'api::reserva.reserva': ApiReservaReserva;
+      'api::valore.valore': ApiValoreValore;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
